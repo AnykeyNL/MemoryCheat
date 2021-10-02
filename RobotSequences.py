@@ -40,19 +40,19 @@ finishgamepos = [ [320.5, 90.8], [216.9, 88.6]]
 
 
 def tik(x,y):
-    z = 23
-    tik = 4
+    z = 24
+    tik = 5
     swift.send_cmd_sync("G0 X{} Y{} Z{} F4000".format(x,y,z))
     swift.send_cmd_sync("G0 Z{} F1000".format(z - tik))
-    time.sleep(0.3)
+    #time.sleep(0.3)
     swift.send_cmd_sync("G0 Z{} F2000".format(z))
-    #time.sleep(0.5)
+    time.sleep(0.5)
 
 def startgame():
     standby()
     for p in startgamepos:
         tik(p[0],p[1])
-        time.sleep(2)
+        time.sleep(3)
     holdpose()
 
 def pickprize():
